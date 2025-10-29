@@ -4,18 +4,31 @@ import { Image } from "react-native";
 
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
+import { Models } from "react-native-appwrite";
+
+interface Property extends Models.Document {
+  image: string;
+  rating: number;
+  name: string;
+  address: string;
+  price: string;
+}
 
 interface Props {
+  item: Property;
   onPress?: () => void;
 }
 
-export const FeatureCard = ({ onPress }: Props) => {
+export const FeatureCard = ({
+  item: { image, rating, name, address, price },
+  onPress,
+}: Props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       className="flex flex-col items-start w-60 h-80 relative"
     >
-      <Image source={images.japan} className="w-full h-full rounded-2xl" />
+      <Image source={{ uri: image }} className="w-full h-full rounded-2xl" />
       <Image
         source={images.cardGradient}
         className="w-full h-full rounded-2xl absolute bottom-0"
@@ -25,7 +38,7 @@ export const FeatureCard = ({ onPress }: Props) => {
       <View className="flex flex-row items-center bg-white/90 px-3 py-1.5 rounded-full absolute top-5 right-5">
         <Image source={icons.star} className="w-3.5 h-3.5" />
         <Text className="text-sm font-rubik-bold text-primary-300 ml-1">
-          4.4
+          {rating}
         </Text>
       </View>
 
@@ -35,14 +48,12 @@ export const FeatureCard = ({ onPress }: Props) => {
           className="text-xl font-rubik-extrabold text-white"
           numberOfLines={1}
         >
-          Modern Apartment
+          {name}
         </Text>
-        <Text className="text-base font-rubik text-white mb-2">
-          99 w 14st, Bengaluru
-        </Text>
+        <Text className="text-base font-rubik text-white mb-2">{address}</Text>
         <View className="flex flex-row items-center justify-between w-full">
           <Text className="text-xl font-rubik-extrabold text-white">
-            $3,600
+            {price}
           </Text>
           <Image source={icons.heart} className="w-5 h-5" tintColor="white" />
         </View>
@@ -51,7 +62,10 @@ export const FeatureCard = ({ onPress }: Props) => {
   );
 };
 
-export const Card = ({ onPress }: Props) => {
+export const Card = ({
+  item: { image, rating, name, address, price },
+  onPress,
+}: Props) => {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -65,18 +79,16 @@ export const Card = ({ onPress }: Props) => {
         </Text>
       </View>
 
-      <Image source={images.japan} className="w-full h-40 rounded-lg" />
+      <Image source={{ uri: image }} className="w-full h-40 rounded-lg" />
 
       <View className="mt-3 px-3">
         <Text className="text-base font-rubik-extrabold text-black">
-          Cozy Studio
+          {name}
         </Text>
-        <Text className="text-xs font-rubik text-gray-500">
-          99 w 14st, Bengaluru
-        </Text>
+        <Text className="text-xs font-rubik text-gray-500">{address}</Text>
         <View className="flex flex-row items-center justify-between mt-2">
           <Text className="text-base font-rubik-extrabold text-primary-300">
-            $3,600
+            {price}
           </Text>
           <Image source={icons.heart} className="w-5 h-5" tintColor="#191d31" />
         </View>

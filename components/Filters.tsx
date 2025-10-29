@@ -1,8 +1,7 @@
-import { router, useLocalSearchParams } from "expo-router";
-import React, { useState } from "react";
-import { ScrollView, Text, TouchableOpacity } from "react-native";
-
 import { categories } from "@/constants/data";
+import { router, useLocalSearchParams } from "expo-router";
+import React, { useEffect, useState } from "react";
+import { ScrollView, Text, TouchableOpacity } from "react-native";
 
 const Filters = () => {
   const params = useLocalSearchParams<{ filter?: string }>();
@@ -10,15 +9,30 @@ const Filters = () => {
     params.filter || "All"
   );
 
+  // ✅ Keep selectedCategory in sync with URL params
+  useEffect(() => {
+    if (params.filter && params.filter !== selectedCategory) {
+      setSelectedCategory(params.filter);
+    }
+  }, [params.filter]);
+
   const handleCategoryPress = (category: string) => {
+    // If user taps same category again → reset to All
     if (selectedCategory === category) {
-      setSelectedCategory("");
-      router.setParams({ filter: "" });
+      setSelectedCategory("All");
+      router.push({
+        pathname: "/",
+        params: { filter: "All" },
+      });
       return;
     }
 
+    // Otherwise apply the new filter
     setSelectedCategory(category);
-    router.setParams({ filter: category });
+    router.push({
+      pathname: "/",
+      params: { filter: category },
+    });
   };
 
   return (
@@ -29,8 +43,8 @@ const Filters = () => {
     >
       {categories.map((item, index) => (
         <TouchableOpacity
-          onPress={() => handleCategoryPress(item.category)}
           key={index}
+          onPress={() => handleCategoryPress(item.category)}
           className={`flex flex-col items-start mr-4 px-4 py-2 rounded-full ${
             selectedCategory === item.category
               ? "bg-primary-300"
