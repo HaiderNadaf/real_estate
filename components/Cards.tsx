@@ -75,7 +75,7 @@ export const Card = ({
       <View className="flex flex-row items-center absolute top-3 right-3 bg-white/90 rounded-full px-2 py-0.5 z-50">
         <Image source={icons.star} className="w-3 h-3" />
         <Text className="text-sm font-rubik-bold text-primary-300 ml-0.5">
-          4.4
+          {rating}
         </Text>
       </View>
 
