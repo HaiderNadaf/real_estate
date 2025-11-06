@@ -1,0 +1,61 @@
+{
+  "cli": {
+    "version": ">= 16.26.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "preview": {
+      "developmentClient": false,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_APPWRITE_PROJECT_ID": "68f7c4430004bf51a3e9",
+        "EXPO_PUBLIC_APPWRITE_PROJECT_NAME": "realState",
+        "EXPO_PUBLIC_APPWRITE_ENDPOINT": "https://fra.cloud.appwrite.io/v1",
+        "EXPO_PUBLIC_APPWRITE_DATABASE_ID": "6900fc3b000e37cb91d0",
+        "EXPO_PUBLIC_APPWRITE_AGENT": "agents",
+        "EXPO_PUBLIC_APPWRITE_GALLERIES": "galleries",
+        "EXPO_PUBLIC_APPWRITE_REVIEWS": "reviews",
+        "EXPO_PUBLIC_APPWRITE_PROPERTIES": "properties"
+      }
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+       "EXPO_PUBLIC_APPWRITE_PROJECT_ID": "68f7c4430004bf51a3e9",
+        "EXPO_PUBLIC_APPWRITE_PROJECT_NAME": "realState",
+        "EXPO_PUBLIC_APPWRITE_ENDPOINT": "https://fra.cloud.appwrite.io/v1",
+        "EXPO_PUBLIC_APPWRITE_DATABASE_ID": "6900fc3b000e37cb91d0",
+        "EXPO_PUBLIC_APPWRITE_AGENT": "agents",
+        "EXPO_PUBLIC_APPWRITE_GALLERIES": "galleries",
+        "EXPO_PUBLIC_APPWRITE_REVIEWS": "reviews",
+        "EXPO_PUBLIC_APPWRITE_PROPERTIES": "properties"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_APPWRITE_PROJECT_ID": "68f7c4430004bf51a3e9",
+        "EXPO_PUBLIC_APPWRITE_PROJECT_NAME": "realState",
+        "EXPO_PUBLIC_APPWRITE_ENDPOINT": "https://fra.cloud.appwrite.io/v1",
+        "EXPO_PUBLIC_APPWRITE_DATABASE_ID": "6900fc3b000e37cb91d0",
+        "EXPO_PUBLIC_APPWRITE_AGENT": "agents",
+        "EXPO_PUBLIC_APPWRITE_GALLERIES": "galleries",
+        "EXPO_PUBLIC_APPWRITE_REVIEWS": "reviews",
+        "EXPO_PUBLIC_APPWRITE_PROPERTIES": "properties"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
