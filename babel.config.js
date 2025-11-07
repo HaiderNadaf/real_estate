@@ -11,10 +11,11 @@ module.exports = function (api) {
         {
           root: ["./"],
           alias: {
-            "@": "./", // <-- FIX: point to project root
+            "@": "./",
           },
         },
       ],
+      // IMPORTANT: this must be last
       "react-native-reanimated/plugin",
     ],
   };
